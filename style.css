@@ -38,7 +38,8 @@ body {
 }
 
 div#app {
-    width: 360px;
+    width: 100%;
+    max-width: 580px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,11 +82,19 @@ div#switch button {
     background: white var(--switch) no-repeat center;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    animation: slide-out .3s;
+}
+
+div#switch button:hover {
+    outline: 4px solid var(--border);
 }
 
 .light div#switch button {
-    left: initial;
-    right: 0;
+    animation: slide-in .3s forwards;
+}
+
+.light div#switch button:hover {
+    outline: 4px solid var(--border);
 }
 
 div#switch span{
@@ -149,4 +158,26 @@ ul.social a:hover {
 
 footer {
     font-size: 14px;
+}
+
+/*animations*/
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0
+    }
 }
